@@ -23,7 +23,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getData() async {
-    print('Im trying');
     http.Response response = await http.get(
       Uri.parse(
           'https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139.01&appid=434c2ad9964a63c58e94d4ee827719c5'),
@@ -32,9 +31,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
     if (response.statusCode == 200) {
       String data = response.body;
 
-      var temperature = jsonDecode(data)['main']['temp'];
-      var condition = jsonDecode(data)['weather'][0]['id'];
-      var cityName = jsonDecode(data)['name'];
+      var decodedData = jsonDecode(data);
+      var temperature = decodedData['main']['temp'];
+      var condition = decodedData['weather'][0]['id'];
+      var cityName = decodedData['name'];
       print(temperature);
       print(condition);
       print(cityName);
