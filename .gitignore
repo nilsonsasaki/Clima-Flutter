@@ -9,7 +9,7 @@
 .history
 .svn/
 #testing
-**/api.dart
+lib/utilities/api_constants.dart
 # IntelliJ related
 *.iml
 *.ipr
